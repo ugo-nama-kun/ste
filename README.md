@@ -12,7 +12,7 @@ where $h$ is the sample from the probability $p$.
 
 ## Task
 digit images "3" or "4" ( $y$) are presented with a conditioning input  $x$ (one_hot. [1, 0] or [0, 1]) . 
-The probability of target images are sampled by $y \sim p(y|x)$ .
+The probability of target images are sampled by $y \sim p(y|x)$ . The stochastic neuron is a single binary Bernouli neuron. The stochastic output is transformed to 64 dimensional vector using fully-connected layers.
 
 In addition to the ordinary straight-through estimator, I added an entropy loss of the binary neuron in the training.
 
@@ -34,3 +34,6 @@ $L = L_{\rm STE} - H[p_b]$
 
 ### [3]:[4] = (10:0 @ x=0), (4:6 @ x=1)
 ![スクリーンショット 2022-09-05 2 17 41](https://user-images.githubusercontent.com/1684732/188325518-8d556934-5b1c-478e-afef-9a8fb176f2bd.png)
+
+# Summary Note
+In my implementation, the STE works well near deterministic situations with some degrees of stochasticity. However, results suggest the clear separation of outputs is blurred if the output distribution is nearly a flat distribution. 
