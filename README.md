@@ -4,8 +4,11 @@ Idea is based on stochastic neural networks with the straight-through gradient e
 - Bengio, Yoshua, Nicholas Léonard, and Aaron Courville. "Estimating or propagating gradients through stochastic neurons for conditional computation." arXiv preprint arXiv:1308.3432 (2013).
 - Hafner, Danijar, et al. "Mastering atari with discrete world models." arXiv preprint arXiv:2010.02193 (2020).
 
-In pytorch, straight-through gradient is obtained using this equation:
-$\hat h = h.detach() + p - p.detach()$
+In pytorch, straight-through gradient is obtained using this equation in the forward inference:
+
+$\hat h = h.detach() + p - p.detach()$,
+
+where $h$ is the sample from the probability $p$.
 
 ## Task
 digit images "3" or "4" ( $y$) are presented with a conditioning input  $x$ (one_hot. [1, 0] or [0, 1]) . 
